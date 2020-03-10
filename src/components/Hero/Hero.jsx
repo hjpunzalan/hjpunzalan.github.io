@@ -1,9 +1,24 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import classes from "./Hero.module.scss";
 
 const Hero = () => {
+	const [appear, setAppear] = useState(0);
+
+	useEffect(() => {
+		window.addEventListener("scroll", () => {
+			if (window.pageYOffset === 0) {
+				setAppear(1);
+			} else if (window.pageYOffset > 0) {
+				setAppear(2);
+			}
+		});
+	});
+
 	return (
-		<div className={classes.container}>
+		<div
+			className={`${classes.container} ${
+				appear === 2 ? classes.disappear : appear === 1 ? classes.appear : ""
+			}`}>
 			<svg
 				className={classes.logo}
 				viewBox="0 0 592 96"

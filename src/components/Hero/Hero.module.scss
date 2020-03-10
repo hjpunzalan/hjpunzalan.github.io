@@ -1,6 +1,18 @@
 .container {
     background: #394560;
+    width: 100vw;
     height: 100vh;
+    position: fixed;
+    animation: fade 2s ease forwards 7s;
+
+}
+
+.disappear {
+    animation: fade 2s ease forwards;
+}
+
+.appear {
+    animation: reappear 2s ease forwards;
 }
 
 
@@ -40,5 +52,27 @@
 
     to {
         fill: white;
+    }
+}
+
+@keyframes fade {
+    from {
+        opacity: 1;
+        display: block;
+    }
+
+    to {
+        opacity: 0;
+        display: none;
+    }
+}
+
+@keyframes reappear {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
     }
 }
