@@ -1,23 +1,37 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useRef } from "react";
 import classes from "./Hero.module.scss";
 
 const Hero = () => {
-	const [appear, setAppear] = useState(0);
+	const [appear, setAppear] = useState("");
+	const ref = useRef(null);
 
 	useEffect(() => {
+		const height = ref.current.getBoundingClientRect().height;
+		const style = window.getComputedStyle(ref.current);
 		window.addEventListener("scroll", () => {
-			if (window.pageYOffset === 0) {
-				setAppear(1);
-			} else if (window.pageYOffset > 0) {
-				setAppear(2);
+			const position = style.getPropertyValue("position");
+			if (window.pageYOffset > 0 && position === "fixed") {
+				setAppear("disappear");
+			} else if (window.pageYOffset === 0 && position === "fixed") {
+				// if position is fixed, make it static
+				setAppear("appear");
+			} else if (window.pageYOffset === 0) {
+				// Fixes bug where scroll would be ignored
+				console.log("return");
+				window.scrollTo(0, height);
 			}
 		});
 	});
 
 	return (
 		<div
+			ref={ref}
 			className={`${classes.container} ${
-				appear === 2 ? classes.disappear : appear === 1 ? classes.appear : ""
+				appear === "disappear"
+					? classes.disappear
+					: appear === "appear"
+					? classes.appear
+					: classes.fixed
 			}`}>
 			<svg
 				className={classes.logo}

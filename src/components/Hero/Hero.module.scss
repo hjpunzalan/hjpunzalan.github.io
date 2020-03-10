@@ -1,17 +1,23 @@
 .container {
     background: #394560;
-    width: 100vw;
+    width: 100%;
     height: 100vh;
-    position: fixed;
     animation: fade 2s ease forwards 7s;
 
 }
 
+.fixed {
+    position: fixed;
+}
+
+
 .disappear {
+    position: fixed;
     animation: fade 2s ease forwards;
 }
 
 .appear {
+    position: static;
     animation: reappear 2s ease forwards;
 }
 
@@ -58,12 +64,11 @@
 @keyframes fade {
     from {
         opacity: 1;
-        display: block;
+        position: fixed;
     }
 
     to {
         opacity: 0;
-        display: none;
     }
 }
 
