@@ -3,7 +3,11 @@ import classes from "./Projects.module.scss";
 
 export class Projects extends Component {
 	render() {
-		return <div className={classes.container}></div>;
+		return (
+			<div className={classes.container}>
+				<h1>Projects</h1>
+			</div>
+		);
 	}
 }
 
