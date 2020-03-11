@@ -11,7 +11,6 @@ export class Hero extends Component {
 	}
 
 	componentDidMount() {
-		const { appear } = this.state;
 		const height = this.ref.current.getBoundingClientRect().height;
 		const style = window.getComputedStyle(this.ref.current);
 		window.addEventListener("scroll", () => {
