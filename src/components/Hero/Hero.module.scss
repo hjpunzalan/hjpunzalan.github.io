@@ -7,13 +7,14 @@
 }
 
 .fixed {
+    z-index: 1000;
     position: fixed;
 }
 
 
 .disappear {
     position: fixed;
-    animation: fade 3s ease forwards;
+    animation: fade 2s ease forwards;
 }
 
 .appear {
