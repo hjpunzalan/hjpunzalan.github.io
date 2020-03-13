@@ -2,18 +2,17 @@
 
 .container {
     height: 100vh;
+    display: flex;
 }
 
 .photo {
-    float: left;
     height: 100%;
     max-width: 50%;
     object-fit: cover;
 }
 
 .about {
-    float: left;
-    padding: 10rem 0;
+    padding: 10rem 5rem;
     padding-left: 10rem;
     max-width: 50%;
     font-family: 'Libre Caslon Text', serif;
@@ -22,13 +21,13 @@
     h2 {
         font-family: inherit;
         font-size: 3rem;
-        font-weight: 400;
+        font-weight: 600;
         line-height: 1.6em;
     }
 
     p {
-        margin-top: 5rem;
+        margin-top: 3rem;
         font-family: 'EB Garamond', serif;
-        font-size: 2.5rem;
+        font-size: 2.2rem;
     }
 }
