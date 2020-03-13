@@ -42,7 +42,7 @@ export class Hero extends Component {
 						: classes.fixed
 				}`}>
 				<div className={classes.bgVideo}>
-					<video controls={false} preload={true} autoPlay loop muted>
+					<video controls={false} preload="true" autoPlay loop muted>
 						<source src={bgmp4} type="video/mp4" />
 						<source src={bgwebm} type="video/webm" />
 						<source src={bgogv} type="video/ogv" />
