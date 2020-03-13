@@ -1,5 +1,9 @@
 import React, { Component } from "react";
 import classes from "./Hero.module.scss";
+import bgjpg from "../../images/hero/Love-Coding.jpg";
+import bgmp4 from "../../images/hero/Love-Coding.mp4";
+import bgwebm from "../../images/hero/Love-Coding.webm";
+import bgogv from "../../images/hero/Love-Coding.ogv";
 
 export class Hero extends Component {
 	constructor() {
@@ -37,6 +41,14 @@ export class Hero extends Component {
 						? classes.appear
 						: classes.fixed
 				}`}>
+				<div className={classes.bgVideo}>
+					<video controls={false} preload={true} autoPlay loop muted>
+						<source src={bgmp4} type="video/mp4" />
+						<source src={bgwebm} type="video/webm" />
+						<source src={bgogv} type="video/ogv" />
+						<source src={bgjpg} type="image/jpg" />
+					</video>
+				</div>
 				<svg
 					className={classes.logo}
 					viewBox="0 0 592 96"
