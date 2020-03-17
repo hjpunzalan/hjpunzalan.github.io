@@ -1,25 +1,23 @@
-@import url('https://fonts.googleapis.com/css?family=EB+Garamond|Libre+Caslon+Text&display=swap');
-
 .container {
-    height: 100vh;
-    display: flex;
+    min-height: 100vh;
 }
 
 .photo {
     height: 100%;
-    max-width: 50%;
+    max-height: 100vh;
+    width: 45%;
+    margin: 0 5rem 2rem 0;
     object-fit: cover;
+    float: left;
+
 }
 
 .about {
     padding: 10rem 5rem;
     padding-left: 10rem;
-    max-width: 50%;
-    font-family: 'Libre Caslon Text', serif;
-    margin-top: 5rem;
 
     h2 {
-        font-family: inherit;
+        font-family: 'Libre Caslon Text', serif;
         font-size: 3rem;
         font-weight: 600;
         line-height: 1.6em;
@@ -27,7 +25,6 @@
 
     p {
         margin-top: 3rem;
-        font-family: 'EB Garamond', serif;
         font-size: 2.2rem;
     }
 }
