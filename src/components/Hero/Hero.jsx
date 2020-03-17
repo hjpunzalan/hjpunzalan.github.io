@@ -23,8 +23,9 @@ export class Hero extends Component {
 				this.setState({ appear: "disappear" });
 			} else if (window.pageYOffset === 0 && position === "fixed") {
 				// if position is fixed, make it static
-				this.setState({ appear: "appear" });
-				window.scrollTo(0, height);
+				this.setState({ appear: "appear" }, () => {
+					window.scrollTo(0, height);
+				});
 			}
 		});
 	}
