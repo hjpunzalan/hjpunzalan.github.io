@@ -1,112 +1,102 @@
 .container {
-    background: #3c5797;
-    width: 100%;
-    height: 100vh;
-    animation: fade 2s ease forwards 7s;
-
+  background: #3c5797;
+  width: 100%;
+  height: 100vh;
+  animation: fade 2s ease forwards 7s;
+  position: relative;
 }
 
 .fixed {
-    z-index: 1000;
-    position: fixed;
+  position: fixed;
 }
 
-
 .disappear {
-    position: fixed;
-    animation: fade 2s ease forwards;
+  position: fixed;
+  animation: fade 2s ease forwards;
 }
 
 .appear {
-    position: static;
-    animation: reappear 2s ease forwards;
+  position: static;
+  animation: reappear 2s ease forwards;
 }
 
-
 .logo {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    min-width: 300px;
-    width: 60vw;
-    height: 300px;
-    transform: translate(-50%, -50%);
-    animation: fill 1s ease forwards 6s;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  min-width: 300px;
+  width: 60vw;
+  height: 300px;
+  transform: translate(-50%, -50%);
+  animation: fill 1s ease forwards 6s;
 
-    path {
-        stroke-dashoffset: 100%;
-        stroke-dasharray: 100%;
-        animation: dash 2s ease forwards;
-    }
+  path {
+    stroke-dashoffset: 100%;
+    stroke-dasharray: 100%;
+    animation: dash 2s ease forwards;
+  }
 
-    @for $i from 1 to 20 {
-        path:nth-child(#{$i}) {
-            animation-delay: #{$i*.3}s;
-        }
+  @for $i from 1 to 20 {
+    path:nth-child(#{$i}) {
+      animation-delay: #{$i * 0.3}s;
     }
+  }
 }
 
 @keyframes dash {
-    to {
-        stroke-dashoffset: 0;
-    }
+  to {
+    stroke-dashoffset: 0;
+  }
 }
 
 @keyframes fill {
-    from {
-        fill: transparent
-    }
+  from {
+    fill: transparent;
+  }
 
-    to {
-        fill: white;
-    }
+  to {
+    fill: white;
+  }
 }
 
 @keyframes fade {
-    from {
-        display: block;
-        opacity: 1;
-        position: fixed;
-        z-index: 1;
-    }
+  from {
+    opacity: 1;
+    position: fixed;
+  }
 
-    to {
-        opacity: 0;
-        display: none;
-        z-index: -2222;
-
-    }
+  to {
+    opacity: 0;
+    display: none;
+  }
 }
 
 @keyframes reappear {
-    from {
-        opacity: 0;
-    }
+  from {
+    opacity: 0;
+  }
 
-    to {
-        opacity: 1;
-    }
+  to {
+    opacity: 1;
+  }
 }
-
-
-
 
 /// for bg video
 
 .bgVideo {
-    position: absolute;
-    top: 0;
-    left: 0;
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  z-index: -100;
+  opacity: 0.4;
+  overflow: hidden;
+
+  video {
     height: 100%;
     width: 100%;
-    z-index: -100;
-    opacity: 0.4;
-    overflow: hidden;
-
-    video {
-        height: 100%;
-        width: 100%;
-        -o-object-fit: cover;
-        object-fit: cover;
-    }
+    -o-object-fit: cover;
+    object-fit: cover;
+  }
 }
