@@ -4,12 +4,44 @@ import budgetymp4 from "../../images/projects/budgety.mp4";
 import budgetypng from "../../images/projects/budgety.png";
 
 export class Projects extends Component {
+	constructor() {
+		super();
+
+		this.state = {
+			budgetyPausedByUser: false
+		};
+		this.section = React.createRef();
+		this.budgetyVideo = React.createRef();
+	}
+
+	componentDidMount() {
+		window.addEventListener("scroll", () => {
+			// Define the top of the video and set top offset
+			const top = this.budgetyVideo.current.offsetTop - window.innerHeight;
+			const bottom =
+				this.budgetyVideo.current.offsetTop +
+				this.budgetyVideo.current.offsetHeight;
+			// Will need to be greater than because it skips pixels
+			if (window.pageYOffset >= top && window.pageYOffset <= bottom) {
+				if (!this.state.budgetyPausedByUser) this.budgetyVideo.current.play();
+			} else {
+				this.budgetyVideo.current.pause();
+			}
+		});
+	}
+
 	render() {
 		return (
-			<div className={classes.container}>
+			<div className={classes.container} ref={this.section}>
 				<h1>Projects</h1>
 				<div className={classes.project}>
-					<video controls={true} preload="true" autoPlay loop muted>
+					<video
+						ref={this.budgetyVideo}
+						controls={true}
+						preload="true"
+						loop
+						muted
+						onClick={() => this.setState({ budgetyPausedByUser: true })}>
 						<source src={budgetymp4} type="video/mp4" />
 						<source src={budgetypng} type="image/png" />
 					</video>
