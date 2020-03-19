@@ -24,7 +24,16 @@
         video {
             width: calc(45vw - 7rem);
             margin: 0 7rem;
-            padding: 1rem;
+            align-self: flex-start;
+            object-fit: cover;
+
+            &:hover {
+                cursor: pointer;
+            }
+
+            &:focus {
+                outline: none;
+            }
         }
 
         .desc {
