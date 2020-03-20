@@ -13,21 +13,19 @@ const About = () => {
 					learning to code since beginning of 2019. Since then, I would spend
 					everyday learning and building web applications. I had always an
 					interest in programming, and creating websites but not until last
-					year, I took this passion seriously.
+					year, after realising that I had this passion within, I took it more
+					seriously.
 				</p>
 				<p>
-					From as young as 10, I was already excited about web development. I
+					From a very young age, I was already excited about web development. I
 					started to code after I saw a profile on a social networking site
 					(Friendster) that was completely different from everyone else. It was
 					abstract, an overlay of code that replaces the default body. I was
 					amazed and I wanted to do the same thing too. I began learning through
 					a bunch of view sourcing of web pages and searching answers through
-					the web. Eventually, I got involved in the community and became a help
-					moderator for multiple friendster forums. Unfortunately, searching my
-					work, I could only find some websites and{" "}
-					<a href="https://92321.activeboard.com/">forums I built.</a> More than
-					that, I remembered why I liked it, why I would wake up early in the
-					morning to spend some time in the family computer and code.
+					the web. I got involved in the community, made websites and my own{" "}
+					<a href="https://92321.activeboard.com/">forum</a> (it's amazing to
+					see it still running) .
 				</p>
 				<p>
 					Having moved here to Australia, I lost my passion. Maybe because we
@@ -37,8 +35,7 @@ const About = () => {
 					which I did. You might be asking, don’t you want to become an
 					engineer? No. Not anymore. Programming is completely different. I
 					haven’t found anything that keeps me up at night and wakes me up
-					early, just to code. This is my passion and I love talking to people
-					about it. It’s that simple.
+					early. Excited to learn and try something new. It’s that simple.
 				</p>
 			</div>
 		</div>
