@@ -18,11 +18,11 @@ const About = () => {
 				<p>
 					From as young as 10, I was already excited about web development. I
 					started to code after I saw a profile on a social networking site
-					(Friendster) that was completely different from the norm, than
-					everyone else. It was completely abstract. I was amazed and I wanted
-					to do the same thing too. I began learning through a bunch of view
-					sourcing of web pages and searching answers through the web.
-					Eventually, I got involved in the community and became a help
+					(Friendster) that was completely different from everyone else. It was
+					abstract, an overlay of code that replaces the default body. I was
+					amazed and I wanted to do the same thing too. I began learning through
+					a bunch of view sourcing of web pages and searching answers through
+					the web. Eventually, I got involved in the community and became a help
 					moderator for multiple friendster forums. Unfortunately, searching my
 					work, I could only find some websites and{" "}
 					<a href="https://92321.activeboard.com/">forums I built.</a> More than
