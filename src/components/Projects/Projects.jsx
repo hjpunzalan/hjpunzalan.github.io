@@ -14,9 +14,7 @@ export class Projects extends Component {
 			budgetyBG: false
 		};
 		this.section = React.createRef();
-		this.projectsTitle = React.createRef();
 		this.budgetyVideo = React.createRef();
-		this.budgety = React.createRef();
 		this.toastmastersVideo = React.createRef();
 	}
 
@@ -24,7 +22,9 @@ export class Projects extends Component {
 		window.addEventListener("scroll", () => {
 			// Define the top of the video and set top offset
 			const top =
-				this.projectsTitle.current.offsetTop + this.section.current.offsetTop;
+				this.budgetyVideo.current.offsetTop +
+				this.section.current.offsetTop -
+				window.innerHeight;
 			// NEED TO CHANGE BOTTOM TO THE PROJECT's bottom
 			const bottom =
 				this.toastmastersVideo.current.offsetTop +
@@ -48,7 +48,7 @@ export class Projects extends Component {
 				<h1 ref={this.projectsTitle}>Projects</h1>
 
 				{/*/////////////////// BUDGETY////////////////// */}
-				<div className={classes.project} ref={this.budgety}>
+				<div className={classes.project}>
 					<h2>Budgety App</h2>
 					<p>
 						A budgeting app inspired by my role as treasurer of a local public
