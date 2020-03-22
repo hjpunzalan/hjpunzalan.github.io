@@ -10,24 +10,33 @@ export class Projects extends Component {
 		super();
 
 		this.state = {
-			budgetyPausedByUser: false
+			budgetyPausedByUser: false,
+			budgetyBG: false
 		};
 		this.section = React.createRef();
+		this.projectsTitle = React.createRef();
 		this.budgetyVideo = React.createRef();
+		this.budgety = React.createRef();
+		this.toastmastersVideo = React.createRef();
 	}
 
 	componentDidMount() {
 		window.addEventListener("scroll", () => {
 			// Define the top of the video and set top offset
-			const top = this.budgetyVideo.current.offsetTop - window.innerHeight;
+			const top =
+				this.projectsTitle.current.offsetTop + this.section.current.offsetTop;
+			// NEED TO CHANGE BOTTOM TO THE PROJECT's bottom
 			const bottom =
-				this.budgetyVideo.current.offsetTop +
-				this.budgetyVideo.current.offsetHeight;
+				this.toastmastersVideo.current.offsetTop +
+				this.section.current.offsetTop -
+				window.innerHeight;
 			// Will need to be greater than because it skips pixels
 			if (window.pageYOffset >= top && window.pageYOffset <= bottom) {
 				if (!this.state.budgetyPausedByUser) this.budgetyVideo.current.play();
+				this.setState({ budgetyBG: true });
 			} else {
 				this.budgetyVideo.current.pause();
+				this.setState({ budgetyBG: false });
 			}
 		});
 	}
@@ -35,10 +44,11 @@ export class Projects extends Component {
 	render() {
 		return (
 			<div className={classes.container} ref={this.section}>
-				<h1>Projects</h1>
+				<div className={this.state.budgetyBG ? classes.budgetyBG : null} />
+				<h1 ref={this.projectsTitle}>Projects</h1>
 
 				{/*/////////////////// BUDGETY////////////////// */}
-				<div className={classes.project}>
+				<div className={classes.project} ref={this.budgety}>
 					<h2>Budgety App</h2>
 					<p>
 						A budgeting app inspired by my role as treasurer of a local public
@@ -92,7 +102,7 @@ export class Projects extends Component {
 						aggregation pipeline.
 					</p>
 					<video
-						ref={this.toastmasterVideo}
+						ref={this.toastmastersVideo}
 						controls={true}
 						preload="true"
 						loop
