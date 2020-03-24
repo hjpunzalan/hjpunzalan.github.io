@@ -11,7 +11,7 @@ export class Projects extends Component {
 
 		this.state = {
 			budgetyPausedByUser: false,
-			budgetyBG: false
+			background: null
 		};
 		this.section = React.createRef();
 		this.budgetyVideo = React.createRef();
@@ -21,22 +21,27 @@ export class Projects extends Component {
 	componentDidMount() {
 		window.addEventListener("scroll", () => {
 			// Define the top of the video and set top offset
-			const top =
+			const budgetyTop =
 				this.budgetyVideo.current.offsetTop +
 				this.section.current.offsetTop -
 				window.innerHeight;
 			// NEED TO CHANGE BOTTOM TO THE PROJECT's bottom
-			const bottom =
+			const toastmasterTop =
 				this.toastmastersVideo.current.offsetTop +
 				this.section.current.offsetTop -
 				window.innerHeight;
 			// Will need to be greater than because it skips pixels
-			if (window.pageYOffset >= top && window.pageYOffset <= bottom) {
+			if (
+				window.pageYOffset >= budgetyTop &&
+				window.pageYOffset < toastmasterTop
+			) {
 				if (!this.state.budgetyPausedByUser) this.budgetyVideo.current.play();
-				this.setState({ budgetyBG: true });
+				this.setState({ background: `${classes.budgetyBG}` });
 			} else {
 				this.budgetyVideo.current.pause();
-				this.setState({ budgetyBG: false });
+				if (window.pageYOffset >= toastmasterTop)
+					this.setState({ background: `${classes.toastmasterBG}` });
+				else this.setState({ background: null });
 			}
 		});
 	}
@@ -44,7 +49,7 @@ export class Projects extends Component {
 	render() {
 		return (
 			<div className={classes.container} ref={this.section}>
-				<div className={this.state.budgetyBG ? classes.budgetyBG : null} />
+				<div className={this.state.background} />
 				<h1 ref={this.projectsTitle}>Projects</h1>
 
 				{/*/////////////////// BUDGETY////////////////// */}
