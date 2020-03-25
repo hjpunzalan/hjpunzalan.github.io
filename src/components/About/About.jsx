@@ -11,7 +11,7 @@ const About = () => {
 				<p>
 					My name is Jonathan and I am a self-taught developer. I have been
 					learning to code since beginning of 2019. Since then, I would spend
-					everyday learning and building web applications. I had always an
+					every day learning and building web applications. I had always an
 					interest in programming, and creating websites but not until last
 					year, after realising that I had this passion within, I took it more
 					seriously.
