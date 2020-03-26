@@ -39,9 +39,13 @@ export class Projects extends Component {
 				this.setState({ background: `${classes.budgetyBG}` });
 			} else {
 				this.budgetyVideo.current.pause();
-				if (window.pageYOffset >= toastmasterTop)
+				if (window.pageYOffset >= toastmasterTop) {
 					this.setState({ background: `${classes.toastmasterBG}` });
-				else this.setState({ background: null });
+					this.toastmastersVideo.current.play();
+				} else {
+					this.setState({ background: null });
+					this.toastmastersVideo.current.pause();
+				}
 			}
 		});
 	}
