@@ -22,13 +22,18 @@ ul {
     font-size: 2rem;
     list-style-type: none;
     margin-bottom: 5rem;
+    padding-left: 3rem;
+
 
     li {
         margin-bottom: 1rem;
+        position: relative;
 
         &::before {
             content: "-";
             margin-right: 2rem;
+            position: absolute;
+            left: -20px;
         }
     }
 }
