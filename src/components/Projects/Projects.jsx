@@ -91,6 +91,10 @@ export class Projects extends Component {
 							Interactive graphs using D3.js for analysis of annual or monthly
 							data
 						</li>
+						<li>
+							MongoDB aggregation pipeline for reading and modifying data sorted
+							by date
+						</li>
 					</ul>
 					<h3>
 						Tech:
@@ -99,16 +103,14 @@ export class Projects extends Component {
 						</span>
 					</h3>
 				</div>
-				{/* ////////////////////////Toastmaster ///////////////////////// */}
+				{/* //////////////////////// Toastmaster ///////////////////////// */}
 				<div className={classes.project}>
 					<h2>Toastmasters discussion board</h2>
 					<p>
-						A budgeting app inspired by my role as treasurer of a local public
-						speaking club. The idea was based from the process how budget was
-						handled and communicated within the club. On top of applying new
-						skills including Typescript and D3.js, this application has also
-						broadened my experience and skills of using MongoDB's querying and
-						aggregation pipeline.
+						A platform for members of a toastmaster club. I wanted to create a
+						way for members to share their speeches or simply post their
+						thoughts using a rich text editor. I took it further by
+						incorporating user level access to admin settings.
 					</p>
 					<video
 						ref={this.toastmastersVideo}
@@ -124,21 +126,18 @@ export class Projects extends Component {
 					<ul>
 						<li>User Authentication with JWT and Sendgrid</li>
 						<li>Complete Responsive design</li>
-						<li>Creating and editing budgets with custom categories</li>
-						<li>Adding and editing transactions</li>
 						<li>
-							Transactions listed in tabulated format based on date with
-							accumulating balance
+							Committee/Moderators access only to edit or delete post, activate
+							or deactivate users and register new members
 						</li>
-						<li>
-							Interactive graphs using D3.js for analysis of annual or monthly
-							data
-						</li>
+						<li>Admin access only to promote/demote users</li>
+						<li>Rich text editor using Draft.js.</li>
+						<li>Client and server based pagination</li>
 					</ul>
 					<h3>
 						Tech:
 						<span className={classes.tech}>
-							Typescript, React, MongoDB, Express, D3.js
+							React, MongoDB, Express, Draft.js, AWS S3
 						</span>
 					</h3>
 				</div>
