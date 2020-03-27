@@ -11,6 +11,7 @@ export class Projects extends Component {
 
 		this.state = {
 			budgetyPausedByUser: false,
+			toastmasterPausedByUser: false,
 			background: null
 		};
 		this.section = React.createRef();
@@ -41,7 +42,8 @@ export class Projects extends Component {
 				this.budgetyVideo.current.pause();
 				if (window.pageYOffset >= toastmasterTop) {
 					this.setState({ background: `${classes.toastmasterBG}` });
-					this.toastmastersVideo.current.play();
+					if (!this.state.budgetyPausedByUser)
+						this.toastmastersVideo.current.play();
 				} else {
 					this.setState({ background: null });
 					this.toastmastersVideo.current.pause();
@@ -118,7 +120,7 @@ export class Projects extends Component {
 						preload="true"
 						loop
 						muted
-						onClick={() => this.setState({ budgetyPausedByUser: true })}>
+						onClick={() => this.setState({ toastmasterPausedByUser: true })}>
 						<source src={toastmastermp4} type="video/mp4" />
 						<source src={toastmasterpng} type="image/png" />
 					</video>
