@@ -4,6 +4,8 @@ import budgetymp4 from "../../images/projects/budgety.mp4";
 import budgetypng from "../../images/projects/budgety.png";
 import toastmastermp4 from "../../images/projects/toastmaster.mp4";
 import toastmasterpng from "../../images/projects/toastmaster.png";
+import pmonitormp4 from "../../images/projects/pmonitor.mp4";
+import pmonitorpng from "../../images/projects/pmonitor.png";
 
 export class Projects extends Component {
 	constructor() {
@@ -17,18 +19,27 @@ export class Projects extends Component {
 		this.section = React.createRef();
 		this.budgetyVideo = React.createRef();
 		this.toastmastersVideo = React.createRef();
+		this.pmonitorVideo = React.createRef();
 	}
 
 	componentDidMount() {
 		window.addEventListener("scroll", () => {
 			// Define the top of the video and set top offset
+			// Need to add section offset because container has relative positioning, thus offsetTop must be added to it to get the actual offset
+			// Window inner height is needed so instead of scrolling till top window reaches top of video, bottom window instead is sought for.
 			const budgetyTop =
 				this.budgetyVideo.current.offsetTop +
 				this.section.current.offsetTop -
 				window.innerHeight;
-			// NEED TO CHANGE BOTTOM TO THE PROJECT's bottom
+			// Budgety bottom / toastmaster top
 			const toastmasterTop =
 				this.toastmastersVideo.current.offsetTop +
+				this.section.current.offsetTop -
+				window.innerHeight;
+
+			//  Toastmaster bottom / performance montior top
+			const pmonitorTop =
+				this.pmonitorVideo.current.offsetTop +
 				this.section.current.offsetTop -
 				window.innerHeight;
 			// Will need to be greater than because it skips pixels
@@ -36,11 +47,16 @@ export class Projects extends Component {
 				window.pageYOffset >= budgetyTop &&
 				window.pageYOffset < toastmasterTop
 			) {
+				// If top of window is within budgety video's top
 				if (!this.state.budgetyPausedByUser) this.budgetyVideo.current.play();
 				this.setState({ background: `${classes.budgetyBG}` });
 			} else {
+				// If top of window  is within toastmaster video's top
 				this.budgetyVideo.current.pause();
-				if (window.pageYOffset >= toastmasterTop) {
+				if (
+					window.pageYOffset >= toastmasterTop &&
+					window.pageYOffset < pmonitorTop
+				) {
 					this.setState({ background: `${classes.toastmasterBG}` });
 					if (!this.state.budgetyPausedByUser)
 						this.toastmastersVideo.current.play();
@@ -123,6 +139,42 @@ export class Projects extends Component {
 						onClick={() => this.setState({ toastmasterPausedByUser: true })}>
 						<source src={toastmastermp4} type="video/mp4" />
 						<source src={toastmasterpng} type="image/png" />
+					</video>
+					<h3>Features:</h3>
+					<ul>
+						<li>User Authentication with JWT and Sendgrid</li>
+						<li>Complete Responsive design</li>
+						<li>
+							Committee/Moderators access only to edit or delete post, activate
+							or deactivate users and register new members
+						</li>
+						<li>Admin access only to promote/demote users</li>
+						<li>Rich text editor using Draft.js.</li>
+						<li>Client and server based pagination</li>
+					</ul>
+					<h3>
+						Tech:
+						<span className={classes.tech}>
+							React, MongoDB, Express, Draft.js, AWS S3
+						</span>
+					</h3>
+				</div>
+				{/* //////////////////////// Performance Monitor ///////////////////////// */}
+				<div className={classes.project}>
+					<h2>Performance monitor</h2>
+					<p>
+						A performance montior which uses socket.io and node.js to track the
+						performance of the Heroku dyno its hosted on.
+					</p>
+					<video
+						ref={this.pmonitorVideo}
+						controls={true}
+						preload="true"
+						loop
+						muted
+						onClick={() => this.setState({ toastmasterPausedByUser: true })}>
+						<source src={pmonitormp4} type="video/mp4" />
+						<source src={pmonitorpng} type="image/png" />
 					</video>
 					<h3>Features:</h3>
 					<ul>
