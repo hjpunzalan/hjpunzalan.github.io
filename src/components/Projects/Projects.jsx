@@ -14,6 +14,7 @@ export class Projects extends Component {
 		this.state = {
 			budgetyPausedByUser: false,
 			toastmasterPausedByUser: false,
+			pmonitorPausedByUser: false,
 			background: null
 		};
 		this.section = React.createRef();
@@ -24,6 +25,7 @@ export class Projects extends Component {
 
 	componentDidMount() {
 		window.addEventListener("scroll", () => {
+			console.log(this.pmonitorVideo);
 			// Define the top of the video and set top offset
 			// Need to add section offset because container has relative positioning, thus offsetTop must be added to it to get the actual offset
 			// Window inner height is needed so instead of scrolling till top window reaches top of video, bottom window instead is sought for.
@@ -50,6 +52,9 @@ export class Projects extends Component {
 				// If top of window is within budgety video's top
 				if (!this.state.budgetyPausedByUser) this.budgetyVideo.current.play();
 				this.setState({ background: `${classes.budgetyBG}` });
+			} else if (window.pageYOffset < budgetyTop) {
+				// If beyond any project (rest to the top)
+				this.setState({ background: null });
 			} else {
 				// If top of window  is within toastmaster video's top
 				this.budgetyVideo.current.pause();
@@ -58,11 +63,22 @@ export class Projects extends Component {
 					window.pageYOffset < pmonitorTop
 				) {
 					this.setState({ background: `${classes.toastmasterBG}` });
-					if (!this.state.budgetyPausedByUser)
+					if (!this.state.toastmasterPausedByUser)
 						this.toastmastersVideo.current.play();
 				} else {
-					this.setState({ background: null });
 					this.toastmastersVideo.current.pause();
+					// When the window is scrolled and pmonitor video can no longer be seen is the bottom
+					const pmonitorBtm =
+						this.pmonitorVideo.current.clientHeight +
+						this.pmonitorVideo.current.offsetTop +
+						window.innerHeight;
+					this.setState({ background: `${classes.pmonitorBG}` });
+					if (window.pageYOffset <= pmonitorBtm) {
+						if (!this.state.pmonitorPausedByUser)
+							this.pmonitorVideo.current.play();
+					} else {
+						this.pmonitorVideo.current.pause();
+					}
 				}
 			}
 		});
@@ -172,7 +188,7 @@ export class Projects extends Component {
 						preload="true"
 						loop
 						muted
-						onClick={() => this.setState({ toastmasterPausedByUser: true })}>
+						onClick={() => this.setState({ pmonitorPausedByUser: true })}>
 						<source src={pmonitormp4} type="video/mp4" />
 						<source src={pmonitorpng} type="image/png" />
 					</video>
