@@ -1,6 +1,7 @@
 // Customize this 'myform.js' script and add it to your JS bundle.
 
 import React from "react";
+import classes from "./Contact.module.scss";
 
 export default class MyForm extends React.Component {
 	constructor(props) {
@@ -14,17 +15,21 @@ export default class MyForm extends React.Component {
 	render() {
 		const { status } = this.state;
 		return (
-			<form
-				onSubmit={this.submitForm}
-				action="https://formspree.io/xbjkvkgb"
-				method="POST">
-				<label>Email:</label>
-				<input type="email" name="email" />
-				<label>Message:</label>
-				<input type="text" name="message" />
-				{status === "SUCCESS" ? <p>Thanks!</p> : <button>Submit</button>}
-				{status === "ERROR" && <p>Ooops! There was an error.</p>}
-			</form>
+			<div className={classes.form}>
+				<form
+					onSubmit={this.submitForm}
+					action="https://formspree.io/xbjkvkgb"
+					method="POST">
+					<label htmlFor="name">Name</label>
+					<input type="name" name="name" />
+					<label>Email:</label>
+					<input type="email" name="email" />
+					<label>Message:</label>
+					<input type="text" name="message" />
+					{status === "SUCCESS" ? <p>Thanks!</p> : <button>Submit</button>}
+					{status === "ERROR" && <p>Ooops! There was an error.</p>}
+				</form>
+			</div>
 		);
 	}
 
