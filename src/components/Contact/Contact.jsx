@@ -16,6 +16,7 @@ export default class MyForm extends React.Component {
 		const { status } = this.state;
 		return (
 			<div className={classes.form}>
+				<h1>Send me a message</h1>
 				<form
 					onSubmit={this.submitForm}
 					action="https://formspree.io/xbjkvkgb"
