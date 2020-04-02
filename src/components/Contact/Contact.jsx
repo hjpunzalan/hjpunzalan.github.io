@@ -23,18 +23,19 @@ export default class MyForm extends React.Component {
 					method="POST">
 					<label htmlFor="name">
 						Name:
-						<input id="name" type="name" name="name" />
+						<input id="name" type="name" name="name" required />
 					</label>
 					<label htmlFor="email">
 						Email:
-						<input id="email" type="email" name="email" />
+						<input id="email" type="email" name="email" required />
 					</label>
 					<label htmlFor="message">
 						Message:
-						<textarea id="message" name="message" />
+						<textarea id="message" name="message" required />
 					</label>
-					{status === "SUCCESS" ? <p>Thanks!</p> : <button>Submit</button>}
+					{status === "SUCCESS" ? <p>Thanks!</p> : null}
 					{status === "ERROR" && <p>Ooops! There was an error.</p>}
+					<button>Submit</button>
 				</form>
 			</div>
 		);
