@@ -32,9 +32,9 @@ const About = () => {
 					started to code after I saw a profile on a social networking site
 					(Friendster) that was completely different from everyone else. It was
 					abstract, an overlay of code that replaces the default body. I was
-					amazed and I wanted to do the same thing too. I began learning through
-					a bunch of view sourcing of web pages and searching answers through
-					the web. I got involved in the community, made websites and my own{" "}
+					amazed and I wanted habe the same thing too. I began learning through
+					view sourcing of web pages and searching answers through the web. I
+					got involved in the community, made websites and my own{" "}
 					<a href="https://92321.activeboard.com/">forum</a> (it's amazing to
 					see one still running) .
 				</p>
