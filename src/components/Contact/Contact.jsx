@@ -8,7 +8,7 @@ export default class MyForm extends React.Component {
 		super(props);
 		this.submitForm = this.submitForm.bind(this);
 		this.state = {
-			status: ""
+			status: "",
 		};
 	}
 
@@ -21,14 +21,17 @@ export default class MyForm extends React.Component {
 					onSubmit={this.submitForm}
 					action="https://formspree.io/xbjkvkgb"
 					method="POST">
-					<label htmlFor="name">
-						Name:
-						<input id="name" type="name" name="name" required />
-					</label>
-					<label htmlFor="email">
-						Email:
-						<input id="email" type="email" name="email" required />
-					</label>
+					<div className={classes.info}>
+						<label htmlFor="name">
+							Name:
+							<input id="name" type="name" name="name" required />
+						</label>
+						<label htmlFor="email">
+							Email:
+							<input id="email" type="email" name="email" required />
+						</label>
+					</div>
+
 					<label htmlFor="message">
 						Message:
 						<textarea id="message" name="message" required />
