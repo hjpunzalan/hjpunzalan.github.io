@@ -12,6 +12,8 @@ import mongodbLogo from "../../images/logo/mongodb.svg";
 import expressLogo from "../../images/logo/express.svg";
 import jestLogo from "../../images/logo/jest.svg";
 import d3Logo from "../../images/logo/d3.svg";
+import dockerLogo from "../../images/logo/docker.svg";
+import travisLogo from "../../images/logo/travis.svg";
 
 const About = () => {
 	return (
@@ -57,6 +59,8 @@ const About = () => {
 					<img src={expressLogo} alt="express logo" />
 					<img src={jestLogo} alt="jest logo" />
 					<img src={d3Logo} alt="d3 logo" />
+					<img src={dockerLogo} alt="docker logo" />
+					<img src={travisLogo} alt="travisCI logo" />
 				</div>
 			</div>
 		</div>
