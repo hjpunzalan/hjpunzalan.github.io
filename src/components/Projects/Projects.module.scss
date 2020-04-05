@@ -42,12 +42,14 @@
   text-align: center;
 
   h1 {
+    color: white;
     font-family: "Montserrat", sans-serif;
-    letter-spacing: 7rem;
+    letter-spacing: 5rem;
     text-transform: uppercase;
     margin: 20rem auto 7rem auto;
-    font-size: 5rem;
+    font-size: 7rem;
     font-weight: 900;
+    animation: text-shadow-pop-br 2s both;
   }
 
   .project {
@@ -55,7 +57,7 @@
     margin: 0 auto 10rem auto;
     text-align: left;
     background: white;
-    padding: 5rem;
+    padding: 10rem;
     border-radius: 5px;
     box-shadow: 0px 0px 20px 2px rgba(0, 0, 0, 0.2);
 
@@ -118,7 +120,7 @@
 
   to {
     background: url("../../images/projects/toastmasterBG.png") repeat;
-    background-color: rgba(131, 0, 44, 0.5);
+    background-color: rgb(104, 43, 43);
     filter: blur(0px);
   }
 }
@@ -129,12 +131,44 @@
   }
 
   50% {
-    filter: blur(10px);
+    filter: blur(2px);
   }
 
   to {
     background: url("../../images/projects/pmonitorBG.png") repeat;
     background-color: rgba(255, 250, 182, 0.5);
     filter: blur(0px);
+  }
+}
+
+
+
+//  Project title animation
+
+@-webkit-keyframes text-shadow-pop-br {
+  0% {
+    text-shadow: 0 0 #555555, 0 0 #555555, 0 0 #555555, 0 0 #555555, 0 0 #555555, 0 0 #555555, 0 0 #555555, 0 0 #555555;
+    -webkit-transform: translateX(0) translateY(0);
+    transform: translateX(0) translateY(0);
+  }
+
+  100% {
+    text-shadow: 1px 1px #555555, 2px 2px #555555, 3px 3px #555555, 4px 4px #555555, 5px 5px #555555, 6px 6px #555555, 7px 7px #555555, 8px 8px #555555;
+    -webkit-transform: translateX(-8px) translateY(-8px);
+    transform: translateX(-8px) translateY(-8px);
+  }
+}
+
+@keyframes text-shadow-pop-br {
+  0% {
+    text-shadow: 0 0 #555555, 0 0 #555555, 0 0 #555555, 0 0 #555555, 0 0 #555555, 0 0 #555555, 0 0 #555555, 0 0 #555555;
+    -webkit-transform: translateX(0) translateY(0);
+    transform: translateX(0) translateY(0);
+  }
+
+  100% {
+    text-shadow: 1px 1px #555555, 2px 2px #555555, 3px 3px #555555, 4px 4px #555555, 5px 5px #555555, 6px 6px #555555, 7px 7px #555555, 8px 8px #555555;
+    -webkit-transform: translateX(-8px) translateY(-8px);
+    transform: translateX(-8px) translateY(-8px);
   }
 }
