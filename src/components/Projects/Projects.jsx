@@ -12,12 +12,14 @@ export class Projects extends Component {
 		super();
 
 		this.state = {
+			animateTitle: false,
 			budgetyPausedByUser: false,
 			toastmasterPausedByUser: false,
 			pmonitorPausedByUser: false,
 			background: null,
 		};
 		this.section = React.createRef();
+		this.title = React.createRef();
 		this.budgetyVideo = React.createRef();
 		this.toastmastersVideo = React.createRef();
 		this.pmonitorVideo = React.createRef();
@@ -25,10 +27,22 @@ export class Projects extends Component {
 
 	componentDidMount() {
 		window.addEventListener("scroll", () => {
-			console.log(this.pmonitorVideo);
 			// Define the top of the video and set top offset
 			// Need to add section offset because container has relative positioning, thus offsetTop must be added to it to get the actual offset
 			// Window inner height is needed so instead of scrolling till top window reaches top of video, bottom window instead is sought for.
+
+			//Animate title on scroll
+			const titleTop =
+				this.title.current.offsetTop +
+				this.section.current.offsetTop -
+				window.innerHeight;
+			if (
+				window.pageYOffset >= titleTop &&
+				window.pageYOffset <= titleTop + window.innerHeight
+			) {
+				this.setState({ animateTitle: true });
+			} else this.setState({ animateTitle: false });
+
 			const budgetyTop =
 				this.budgetyVideo.current.offsetTop +
 				this.section.current.offsetTop -
@@ -51,10 +65,14 @@ export class Projects extends Component {
 			) {
 				// If top of window is within budgety video's top
 				if (!this.state.budgetyPausedByUser) this.budgetyVideo.current.play();
-				this.setState({ background: `${classes.budgetyBG}` });
+				this.setState({
+					background: `${classes.budgetyBG}`,
+				});
 			} else if (window.pageYOffset < budgetyTop) {
 				// If beyond any project (rest to the top)
-				this.setState({ background: null });
+				this.setState({
+					background: null,
+				});
 			} else {
 				// If top of window  is within toastmaster video's top
 				this.budgetyVideo.current.pause();
@@ -62,7 +80,9 @@ export class Projects extends Component {
 					window.pageYOffset >= toastmasterTop &&
 					window.pageYOffset < pmonitorTop
 				) {
-					this.setState({ background: `${classes.toastmasterBG}` });
+					this.setState({
+						background: `${classes.toastmasterBG}`,
+					});
 					if (!this.state.toastmasterPausedByUser)
 						this.toastmastersVideo.current.play();
 				} else {
@@ -72,7 +92,9 @@ export class Projects extends Component {
 						this.pmonitorVideo.current.clientHeight +
 						this.pmonitorVideo.current.offsetTop +
 						window.innerHeight;
-					this.setState({ background: `${classes.pmonitorBG}` });
+					this.setState({
+						background: `${classes.pmonitorBG}`,
+					});
 					if (window.pageYOffset <= pmonitorBtm) {
 						if (!this.state.pmonitorPausedByUser)
 							this.pmonitorVideo.current.play();
@@ -88,7 +110,11 @@ export class Projects extends Component {
 		return (
 			<div className={classes.container} ref={this.section}>
 				<div className={this.state.background} />
-				<h1 ref={this.projectsTitle}>Projects</h1>
+				<h1
+					ref={this.title}
+					className={this.state.animateTitle ? classes.animateTitle : null}>
+					Projects
+				</h1>
 
 				{/*/////////////////// BUDGETY////////////////// */}
 				<div className={classes.project}>
