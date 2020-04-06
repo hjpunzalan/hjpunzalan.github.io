@@ -15,7 +15,7 @@ export class Projects extends Component {
 			budgetyPausedByUser: false,
 			toastmasterPausedByUser: false,
 			pmonitorPausedByUser: false,
-			background: null
+			background: null,
 		};
 		this.section = React.createRef();
 		this.budgetyVideo = React.createRef();
@@ -107,7 +107,11 @@ export class Projects extends Component {
 						preload="true"
 						loop
 						muted
-						onClick={() => this.setState({ budgetyPausedByUser: true })}>
+						onClick={() =>
+							this.setState({
+								budgetyPausedByUser: !this.state.budgetyPausedByUser,
+							})
+						}>
 						<source src={budgetymp4} type="video/mp4" />
 						<source src={budgetypng} type="image/png" />
 					</video>
@@ -152,7 +156,11 @@ export class Projects extends Component {
 						preload="true"
 						loop
 						muted
-						onClick={() => this.setState({ toastmasterPausedByUser: true })}>
+						onClick={() =>
+							this.setState({
+								toastmasterPausedByUser: !this.state.toastmasterPausedByUser,
+							})
+						}>
 						<source src={toastmastermp4} type="video/mp4" />
 						<source src={toastmasterpng} type="image/png" />
 					</video>
@@ -188,7 +196,11 @@ export class Projects extends Component {
 						preload="true"
 						loop
 						muted
-						onClick={() => this.setState({ pmonitorPausedByUser: true })}>
+						onClick={() =>
+							this.setState({
+								pmonitorPausedByUser: !this.state.pmonitorPausedByUser,
+							})
+						}>
 						<source src={pmonitormp4} type="video/mp4" />
 						<source src={pmonitorpng} type="image/png" />
 					</video>
