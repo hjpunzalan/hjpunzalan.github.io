@@ -7,6 +7,16 @@ import toastmasterpng from "../../images/projects/toastmaster.png";
 import pmonitormp4 from "../../images/projects/pmonitor.mp4";
 import pmonitorpng from "../../images/projects/pmonitor.png";
 
+// Logos
+import jsLogo from "../../images/logo/js.svg";
+import typescriptLogo from "../../images/logo/typescript.svg";
+import sassLogo from "../../images/logo/sass.svg";
+import reactLogo from "../../images/logo/react.svg";
+import reduxLogo from "../../images/logo/redux.svg";
+import mongodbLogo from "../../images/logo/mongodb.svg";
+import expressLogo from "../../images/logo/express.svg";
+import d3Logo from "../../images/logo/d3.svg";
+
 export class Projects extends Component {
 	constructor() {
 		super();
@@ -38,7 +48,8 @@ export class Projects extends Component {
 				window.innerHeight;
 			if (
 				window.pageYOffset >= titleTop &&
-				window.pageYOffset <= titleTop + window.innerHeight
+				window.pageYOffset <=
+					titleTop + window.innerHeight + this.title.current.clientHeight
 			) {
 				this.setState({ animateTitle: true });
 			} else this.setState({ animateTitle: false });
@@ -118,7 +129,17 @@ export class Projects extends Component {
 
 				{/*/////////////////// BUDGETY////////////////// */}
 				<div className={classes.project}>
-					<h2>Budgety App</h2>
+					<div className={classes.header}>
+						<h2 className={classes.projectTitle}>Budgety App</h2>
+						<div className={classes.techLogos}>
+							<img src={typescriptLogo} alt="typescript" />
+							<img src={reactLogo} alt="react" />
+							<img src={reduxLogo} alt="redux" />
+							<img src={mongodbLogo} alt="mongodb" />
+							<img src={expressLogo} alt="express" />
+							<img src={d3Logo} alt="d3js" />
+						</div>
+					</div>
 					<p>
 						A budgeting app inspired by my role as treasurer of a local public
 						speaking club. The idea was based from the process how budget was
@@ -141,6 +162,7 @@ export class Projects extends Component {
 						<source src={budgetymp4} type="video/mp4" />
 						<source src={budgetypng} type="image/png" />
 					</video>
+
 					<h3>Features:</h3>
 					<ul>
 						<li>User Authentication with JWT and Sendgrid</li>
@@ -160,12 +182,6 @@ export class Projects extends Component {
 							by date
 						</li>
 					</ul>
-					<h3>
-						Tech:
-						<span className={classes.tech}>
-							Typescript, React, MongoDB, Express, D3.js
-						</span>
-					</h3>
 				</div>
 				{/* //////////////////////// Toastmaster ///////////////////////// */}
 				<div className={classes.project}>
