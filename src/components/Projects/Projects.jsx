@@ -16,6 +16,8 @@ import reduxLogo from "../../images/logo/redux.svg";
 import mongodbLogo from "../../images/logo/mongodb.svg";
 import expressLogo from "../../images/logo/express.svg";
 import d3Logo from "../../images/logo/d3.svg";
+import draftJSLogo from "../../images/logo/draftjs.png";
+import s3Logo from "../../images/logo/s3.svg";
 
 export class Projects extends Component {
 	constructor() {
@@ -135,6 +137,7 @@ export class Projects extends Component {
 							<img src={typescriptLogo} alt="typescript" />
 							<img src={reactLogo} alt="react" />
 							<img src={reduxLogo} alt="redux" />
+							<img src={sassLogo} alt="sass" />
 							<img src={mongodbLogo} alt="mongodb" />
 							<img src={expressLogo} alt="express" />
 							<img src={d3Logo} alt="d3js" />
@@ -185,7 +188,18 @@ export class Projects extends Component {
 				</div>
 				{/* //////////////////////// Toastmaster ///////////////////////// */}
 				<div className={classes.project}>
-					<h2>Toastmasters discussion board</h2>
+					<div className={classes.header}>
+						<h2 className={classes.projectTitle}>Toastmasters Club</h2>
+						<div className={classes.techLogos}>
+							<img src={jsLogo} alt="js" />
+							<img src={reactLogo} alt="react" />
+							<img src={reduxLogo} alt="redux" />
+							<img src={sassLogo} alt="sass" />
+							<img src={expressLogo} alt="express" />
+							<img src={draftJSLogo} alt="draftjs" />
+							<img src={s3Logo} alt="aws s3" />
+						</div>
+					</div>
 					<p>
 						A platform for members of a toastmaster club. I wanted to create a
 						way for members to share their speeches or simply post their
@@ -218,12 +232,6 @@ export class Projects extends Component {
 						<li>Rich text editor using Draft.js.</li>
 						<li>Client and server based pagination</li>
 					</ul>
-					<h3>
-						Tech:
-						<span className={classes.tech}>
-							React, MongoDB, Express, Draft.js, AWS S3
-						</span>
-					</h3>
 				</div>
 				{/* //////////////////////// Performance Monitor ///////////////////////// */}
 				<div className={classes.project}>
