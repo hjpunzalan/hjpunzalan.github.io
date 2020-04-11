@@ -38,7 +38,6 @@
   background: #2073e048;
   width: 100%;
   clip-path: polygon(100% 0, 0 5%, 0 100%, 100% 98%);
-  ;
   text-align: center;
 
   h1 {
@@ -73,24 +72,40 @@
       justify-content: space-between;
       align-items: center;
       margin-bottom: 2rem;
+      margin-top: 4rem;
 
       .projectTitle {
         font-size: 4rem;
+        margin-bottom: 0;
       }
 
-      .techLogos {
+      .links {
         display: flex;
         align-items: center;
-        margin-right: 2rem;
 
         img {
-          width: 50px;
+          width: 40px;
           margin-right: 1rem;
+          transition: all .2s;
+
+          &:hover {
+            cursor: pointer;
+            transform: scale(.9)
+            
+          }
         }
       }
-
     }
 
+    .techLogos {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+
+      img {
+        width: 50px;
+      }
+    }
 
     p {
       line-height: 3.5rem;
@@ -108,9 +123,7 @@
       &:focus {
         outline: none;
       }
-
     }
-
   }
 }
 
@@ -162,8 +175,6 @@
   }
 }
 
-
-
 //  Project title animation
 
 @-webkit-keyframes text-shadow-pop-br {
@@ -174,7 +185,8 @@
   }
 
   100% {
-    text-shadow: 1px 1px #555555, 2px 2px #555555, 3px 3px #555555, 4px 4px #555555, 5px 5px #555555, 6px 6px #555555, 7px 7px #555555, 8px 8px #555555;
+    text-shadow: 1px 1px #555555, 2px 2px #555555, 3px 3px #555555, 4px 4px #555555, 5px 5px #555555, 6px 6px #555555,
+      7px 7px #555555, 8px 8px #555555;
     -webkit-transform: translateX(-8px) translateY(-8px);
     transform: translateX(-8px) translateY(-8px);
   }
@@ -188,7 +200,8 @@
   }
 
   100% {
-    text-shadow: 1px 1px #555555, 2px 2px #555555, 3px 3px #555555, 4px 4px #555555, 5px 5px #555555, 6px 6px #555555, 7px 7px #555555, 8px 8px #555555;
+    text-shadow: 1px 1px #555555, 2px 2px #555555, 3px 3px #555555, 4px 4px #555555, 5px 5px #555555, 6px 6px #555555,
+      7px 7px #555555, 8px 8px #555555;
     -webkit-transform: translateX(-8px) translateY(-8px);
     transform: translateX(-8px) translateY(-8px);
   }

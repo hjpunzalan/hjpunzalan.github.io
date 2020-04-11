@@ -19,6 +19,10 @@ import d3Logo from "../../images/logo/d3.svg";
 import draftJSLogo from "../../images/logo/draftjs.png";
 import s3Logo from "../../images/logo/s3.svg";
 
+// Github and webii
+import webLogo from "../../images/logo/web.svg";
+import repo from "../../images/logo/repo.svg";
+
 export class Projects extends Component {
 	constructor() {
 		super();
@@ -131,18 +135,23 @@ export class Projects extends Component {
 
 				{/*/////////////////// BUDGETY////////////////// */}
 				<div className={classes.project}>
+					<div className={classes.techLogos}>
+						<img src={typescriptLogo} alt="typescript" />
+						<img src={reactLogo} alt="react" />
+						<img src={reduxLogo} alt="redux" />
+						<img src={sassLogo} alt="sass" />
+						<img id="smallLogo" src={mongodbLogo} alt="mongodb" />
+						<img id="smallLogo" src={expressLogo} alt="express" />
+						<img src={d3Logo} alt="d3js" />
+					</div>
 					<div className={classes.header}>
 						<h2 className={classes.projectTitle}>Budgety App</h2>
-						<div className={classes.techLogos}>
-							<img src={typescriptLogo} alt="typescript" />
-							<img src={reactLogo} alt="react" />
-							<img src={reduxLogo} alt="redux" />
-							<img src={sassLogo} alt="sass" />
-							<img src={mongodbLogo} alt="mongodb" />
-							<img src={expressLogo} alt="express" />
-							<img src={d3Logo} alt="d3js" />
+						<div className={classes.links}>
+							<img src={webLogo} alt="Budgety Web" />
+							<img src={repo} alt="repo" />
 						</div>
 					</div>
+
 					<p>
 						A budgeting app inspired by my role as treasurer of a local public
 						speaking club. The idea was based from the process how budget was
