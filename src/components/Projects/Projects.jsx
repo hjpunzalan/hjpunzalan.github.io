@@ -32,7 +32,7 @@ export class Projects extends Component {
 			budgetyPausedByUser: false,
 			toastmasterPausedByUser: false,
 			pmonitorPausedByUser: false,
-			background: null,
+			background: null
 		};
 		this.section = React.createRef();
 		this.title = React.createRef();
@@ -83,12 +83,12 @@ export class Projects extends Component {
 				// If top of window is within budgety video's top
 				if (!this.state.budgetyPausedByUser) this.budgetyVideo.current.play();
 				this.setState({
-					background: `${classes.budgetyBG}`,
+					background: `${classes.budgetyBG}`
 				});
 			} else if (window.pageYOffset < budgetyTop) {
 				// If beyond any project (rest to the top)
 				this.setState({
-					background: null,
+					background: null
 				});
 			} else {
 				// If top of window  is within toastmaster video's top
@@ -98,7 +98,7 @@ export class Projects extends Component {
 					window.pageYOffset < pmonitorTop
 				) {
 					this.setState({
-						background: `${classes.toastmasterBG}`,
+						background: `${classes.toastmasterBG}`
 					});
 					if (!this.state.toastmasterPausedByUser)
 						this.toastmastersVideo.current.play();
@@ -110,7 +110,7 @@ export class Projects extends Component {
 						this.pmonitorVideo.current.offsetTop +
 						window.innerHeight;
 					this.setState({
-						background: `${classes.pmonitorBG}`,
+						background: `${classes.pmonitorBG}`
 					});
 					if (window.pageYOffset <= pmonitorBtm) {
 						if (!this.state.pmonitorPausedByUser)
@@ -135,15 +135,6 @@ export class Projects extends Component {
 
 				{/*/////////////////// BUDGETY////////////////// */}
 				<div className={classes.project}>
-					<div className={classes.techLogos}>
-						<img src={typescriptLogo} alt="typescript" />
-						<img src={reactLogo} alt="react" />
-						<img src={reduxLogo} alt="redux" />
-						<img src={sassLogo} alt="sass" />
-						<img id="smallLogo" src={mongodbLogo} alt="mongodb" />
-						<img id="smallLogo" src={expressLogo} alt="express" />
-						<img src={d3Logo} alt="d3js" />
-					</div>
 					<div className={classes.header}>
 						<h2 className={classes.projectTitle}>Budgety App</h2>
 						<div className={classes.links}>
@@ -168,7 +159,7 @@ export class Projects extends Component {
 						muted
 						onClick={() =>
 							this.setState({
-								budgetyPausedByUser: !this.state.budgetyPausedByUser,
+								budgetyPausedByUser: !this.state.budgetyPausedByUser
 							})
 						}>
 						<source src={budgetymp4} type="video/mp4" />
@@ -194,19 +185,23 @@ export class Projects extends Component {
 							by date
 						</li>
 					</ul>
+					<div className={classes.techLogos}>
+						<img src={typescriptLogo} alt="typescript" />
+						<img src={reactLogo} alt="react" />
+						<img src={reduxLogo} alt="redux" />
+						<img src={sassLogo} alt="sass" />
+						<img id="smallLogo" src={mongodbLogo} alt="mongodb" />
+						<img id="smallLogo" src={expressLogo} alt="express" />
+						<img src={d3Logo} alt="d3js" />
+					</div>
 				</div>
 				{/* //////////////////////// Toastmaster ///////////////////////// */}
 				<div className={classes.project}>
 					<div className={classes.header}>
 						<h2 className={classes.projectTitle}>Toastmasters Club</h2>
-						<div className={classes.techLogos}>
-							<img src={jsLogo} alt="js" />
-							<img src={reactLogo} alt="react" />
-							<img src={reduxLogo} alt="redux" />
-							<img src={sassLogo} alt="sass" />
-							<img src={expressLogo} alt="express" />
-							<img src={draftJSLogo} alt="draftjs" />
-							<img src={s3Logo} alt="aws s3" />
+						<div className={classes.links}>
+							<img src={webLogo} alt="Budgety Web" />
+							<img src={repo} alt="repo" />
 						</div>
 					</div>
 					<p>
@@ -223,7 +218,7 @@ export class Projects extends Component {
 						muted
 						onClick={() =>
 							this.setState({
-								toastmasterPausedByUser: !this.state.toastmasterPausedByUser,
+								toastmasterPausedByUser: !this.state.toastmasterPausedByUser
 							})
 						}>
 						<source src={toastmastermp4} type="video/mp4" />
@@ -241,6 +236,15 @@ export class Projects extends Component {
 						<li>Rich text editor using Draft.js.</li>
 						<li>Client and server based pagination</li>
 					</ul>
+					<div className={classes.techLogos}>
+						<img src={jsLogo} alt="js" />
+						<img src={reactLogo} alt="react" />
+						<img src={reduxLogo} alt="redux" />
+						<img src={sassLogo} alt="sass" />
+						<img src={expressLogo} alt="express" />
+						<img src={draftJSLogo} alt="draftjs" />
+						<img src={s3Logo} alt="aws s3" />
+					</div>
 				</div>
 				{/* //////////////////////// Performance Monitor ///////////////////////// */}
 				<div className={classes.project}>
@@ -257,7 +261,7 @@ export class Projects extends Component {
 						muted
 						onClick={() =>
 							this.setState({
-								pmonitorPausedByUser: !this.state.pmonitorPausedByUser,
+								pmonitorPausedByUser: !this.state.pmonitorPausedByUser
 							})
 						}>
 						<source src={pmonitormp4} type="video/mp4" />
