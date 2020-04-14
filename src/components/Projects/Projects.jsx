@@ -250,8 +250,8 @@ export class Projects extends Component {
 				<div className={classes.project}>
 					<h2>Performance monitor</h2>
 					<p>
-						A performance montior which uses socket.io and node.js to track the
-						performance of the Heroku dyno its hosted on.
+						A performance monitor which uses socket.io and node.js to track the
+						load of the Heroku dyno its hosted on.
 					</p>
 					<video
 						ref={this.pmonitorVideo}
@@ -269,15 +269,9 @@ export class Projects extends Component {
 					</video>
 					<h3>Features:</h3>
 					<ul>
-						<li>User Authentication with JWT and Sendgrid</li>
-						<li>Complete Responsive design</li>
-						<li>
-							Committee/Moderators access only to edit or delete post, activate
-							or deactivate users and register new members
-						</li>
-						<li>Admin access only to promote/demote users</li>
-						<li>Rich text editor using Draft.js.</li>
-						<li>Client and server based pagination</li>
+						<li>Real time data using Socket.io</li>
+						<li>SVG data visualisation</li>
+						<li>Full stack MERN application</li>
 					</ul>
 					<h3>
 						Tech:
