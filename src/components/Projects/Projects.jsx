@@ -18,6 +18,8 @@ import expressLogo from "../../images/logo/express.svg";
 import d3Logo from "../../images/logo/d3.svg";
 import draftJSLogo from "../../images/logo/draftjs.png";
 import s3Logo from "../../images/logo/s3.svg";
+import socketioLogo from "../../images/logo/socketio.svg";
+import cssLogo from "../../images/logo/css.svg";
 
 // Github and webii
 import webLogo from "../../images/logo/web.svg";
@@ -272,13 +274,16 @@ export class Projects extends Component {
 						<li>Real time data using Socket.io</li>
 						<li>SVG data visualisation</li>
 						<li>Full stack MERN application</li>
+						<li>Access computer performance using OS module</li>
+						<li>Ability to scale using cluster</li>
 					</ul>
-					<h3>
-						Tech:
-						<span className={classes.tech}>
-							React, MongoDB, Express, Draft.js, AWS S3
-						</span>
-					</h3>
+					<div className={classes.techLogos}>
+						<img src={cssLogo} alt="css" />
+						<img src={jsLogo} alt="js" />
+						<img src={reactLogo} alt="react" />
+						<img src={expressLogo} alt="express" />
+						<img src={socketioLogo} alt="socketio" />
+					</div>
 				</div>
 			</div>
 		);
